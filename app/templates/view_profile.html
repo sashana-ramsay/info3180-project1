@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+
+{% block main %}
+{% include 'flash_messages.html' %}
+<div class="userprofile">
+        {% for image in images %}
+              {% if profile.image == image %}
+                    <li>
+                        <div>
+                             <img src="{{url_for('static', filename ='uploads/'+image)}}" />
+                             <div>
+                                <p>{{profile.firstname}} {{profile.lastname}}</p>
+                                <p>{{profile.gender}}</p>
+                                <p>{{profile.location}}</p>
+                                <p>joined on {{profile.date_joined.strftime("%B, %d, %Y") }}</p>
+                             </div>
+                        </div>
+                        <div>
+                            <p>About me</p>
+                            <p>{{profile.biography }}</p>
+                        </div>
+                        <div><a class="button">Send Message</a></div>
+                        <div><a class="button">Follow</a></div>
+                    </li>
+              {% endif %}
+        {% endfor %}
+</div>
+
+{% endblock %}

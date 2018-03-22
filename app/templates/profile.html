@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %} UserProfile {% endblock %}
+
+{% block main %}
+<form action="{{ url_for('profile') }}" method="POST" enctype="multipart/form-data">
+    {{form.csrf_token}}
+    <strong>{{ form.firstname.label }}</strong><br/> {{ form.firstname(size="40",class="field") }}<br/> <br/>
+    <ul>
+    {% for error in form.firstname.errors %}
+      <li style="color:red;">{{ error }}</li>
+    {% endfor %}
+    </ul>
+    
+    <strong>{{ form.lastname.label }}</strong><br/> {{ form.lastname(size="40",class="field") }}<br/> <br/>
+    <ul>
+    {% for error in form.lastname.errors %}
+      <li style="color:red;">{{ error }}</li>
+    {% endfor %}
+    </ul>
+    
+    <strong>{{ form.gender.label }}</strong><br/> {{ form.gender(class="field") }}<br/> <br/>
+    <ul>
+    {% for error in form.gender.errors %}
+      <li style="color:red;">{{ error }}</li>
+    {% endfor %}
+    </ul>
+    
+    <strong>{{ form.email.label }}</strong><br/> {{ form.email(size="40",class="field") }}<br/> <br/>
+    <ul>
+    {% for error in form.email.errors %}
+      <li style="color:red;">{{ error }}</li>
+    {% endfor %}
+    </ul>
+    
+    <strong>{{ form.location.label }}</strong><br/>{{ form.location(size="40",class="field") }}<br/> <br/>
+    <ul>
+    {% for error in form.location.errors %}
+      <li style="color:red;">{{ error }}</li>
+    {% endfor %}
+    </ul>
+    
+    <strong>{{ form.biography.label }}</strong><br/> {{ form.biography(cols="45", rows="5",class="field") }}<br/> <br/>
+    <ul>
+    {% for error in form.biography.errors %}
+      <li style="color:red;">{{ error }}</li>
+    {% endfor %}
+    </ul>
+    
+    <strong>{{ form.upload.label }}</strong><br/> {{ form.upload(size="40")}}<br/> <br/>
+    <ul>
+    {% for error in form.upload.errors %}
+      <li style="color:red;">{{ error }}</li>
+    {% endfor %}
+    </ul>
+    
+    <button type="submit" name="submit">Add Profile</button>
+</form>
+{% endblock %}
