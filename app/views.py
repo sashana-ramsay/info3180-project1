@@ -5,14 +5,14 @@ Werkzeug Documentation:  http://werkzeug.pocoo.org/documentation/
 This file creates your application.
 """
 
-from app import app, db, login_manager,filefolder
+from app import app, db,filefolder
 import os,random,datetime
 from flask import render_template, request, redirect, url_for, flash,jsonify, make_response
 from forms import ProfileForm
 from models import UserProfile
 from werkzeug.utils import secure_filename
 from flask_wtf import FlaskForm
-from flask_login import login_user, logout_user, current_user, login_required
+
 
 
 
@@ -88,9 +88,6 @@ def view_profile(filename):
     
 # user_loader callback. This callback is used to reload the user object from
 # the user ID stored in the session
-@login_manager.user_loader
-def load_user(id):
-    return UserProfile.query.get(int(id))
 
 ###
 # The functions below should be applicable to all Flask apps.
