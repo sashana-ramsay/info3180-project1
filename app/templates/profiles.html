@@ -8,7 +8,7 @@
     {% for profile in profiles %}
         {% for image in images %}
             {% if profile.image == image %}
-              <li>
+              
                   <img src="{{ url_for('static', filename ='uploads/'+image) }}"/>
                   <div>
                         <p>{{profile.firstname}} {{profile.lastname}}</p>
@@ -16,7 +16,7 @@
                         <p>{{profile.location}}</p>
                   </div>
                   <div><a class="button" href="{{ url_for('view_profile', filename = profile.id ) }}">View Profile</a></div>
-              </li>
+              
             {% endif %}
         {% endfor %}
     {% endfor %}
