@@ -236,7 +236,7 @@ label {
 }
 
 button {
-  border-radius: 0;
+  border-radius: 5px;
 }
 
 button:focus {
@@ -338,7 +338,10 @@ progress {
 
 ::-webkit-file-upload-button {
   font: inherit;
-  -webkit-appearance: button;
+  <label class="btn btn-default btn-file">
+    Browse <input type="file" style="display: none;">
+</label>
+  #-webkit-appearance: button;#
 }
 
 output {

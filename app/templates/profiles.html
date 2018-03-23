@@ -4,18 +4,20 @@
 {% block main %}
 
   {% include 'flash_messages.html' %}
-  <div class="userprofile">
+  <h1>Profiles</h1><br/> 
+  <div class="userprofiles">
     {% for profile in profiles %}
         {% for image in images %}
             {% if profile.image == image %}
-              
-                  <img src="{{ url_for('static', filename ='uploads/'+image) }}"/>
+              <div class=userprofile>
+                  <img class="profilesimage" src="{{ url_for('static', filename ='uploads/'+image) }}"/>
                   <div>
-                        <p>{{profile.firstname}} {{profile.lastname}}</p>
-                        <p>{{profile.gender}}</p>
-                        <p>{{profile.location}}</p>
+                        <h4>{{profile.firstname}} {{profile.lastname}}</h4>
+                        <p><span class="fa fa-user" style="font-size:24px;"></span>{{profile.gender}}</p>
+                        <p><span class="fa fa-map-marker" style="font-size:24px;"></span>{{profile.location}}</p>
                   </div>
-                  <div><a class="button" href="{{ url_for('view_profile', filename = profile.id ) }}">View Profile</a></div>
+                  <div><a href="{{ url_for('view_profile', filename = profile.id )}}" class="button">View Profile</a></div>
+              </div>
               
             {% endif %}
         {% endfor %}
